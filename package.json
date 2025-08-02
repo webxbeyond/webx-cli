@@ -1,0 +1,15 @@
+{
+  "name": "webx-cli",
+  "version": "1.0.0",
+  "description": "WebX CLI card – terminal portfolio & projects",
+  "bin": {
+    "webx": "./index.js"
+  },
+  "type": "module",
+  "dependencies": {
+    "chalk": "^5.0.0",
+    "boxen": "^7.0.0",
+    "figlet": "^1.5.2",
+    "gradient-string": "^2.0.1"
+  }
+}
