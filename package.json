@@ -1,5 +1,16 @@
 {
-  "name": "webx-cli",
+  "name": "@webx/webx-cli",
+  "author": "Anis Afifi",
+  "license": "MIT",
+  "keywords": [
+    "webx",
+    "cli",
+    "portfolio",
+    "projects",
+    "terminal",
+    "card",
+    "showcase"
+  ],
   "version": "1.0.0",
   "description": "WebX CLI card – terminal portfolio & projects",
   "bin": {
