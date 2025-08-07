@@ -10,7 +10,7 @@
 Run the following command to see the WebX CLI card in action:
 
 ```bash
-npx webx
+npx anisafifi
 ```
 
 That's it! No installation required. ✨
@@ -26,7 +26,7 @@ npm install -g @webxbeyond/webx-cli
 Then run:
 
 ```bash
-webx
+anisafifi
 ```
 
 ## 🎨 Features
@@ -100,7 +100,7 @@ webx-cli/
 
 ### Basic Usage
 ```bash
-npx webx
+npx anisafifi
 ```
 
 ### Alternative Commands

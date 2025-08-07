@@ -11,11 +11,11 @@
     "card",
     "showcase"
   ],
-  "version": "1.0.2",
-  "description": "WebX CLI card – terminal portfolio & projects. Run with: npx webx",
+  "version": "1.0.3",
+  "description": "WebX CLI card – terminal portfolio & projects. Run with: npx anisafifi",
   "preferGlobal": true,
   "bin": {
-    "webx": "./index.js",
+    "anisafifi": "./index.js",
     "webx-cli": "./index.js"
   },
   "type": "module",
