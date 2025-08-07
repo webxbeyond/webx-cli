@@ -11,7 +11,7 @@
     "card",
     "showcase"
   ],
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "WebX CLI card – terminal portfolio & projects. Run with: npx webx",
   "preferGlobal": true,
   "bin": {
