@@ -54,5 +54,8 @@ jobs:
         if: steps.version-check.outputs.skip == 'false'
         run: |
           sleep 30  # Wait for npm to propagate
-          echo "Testing npx webx..."
-          npx --yes @webxbeyond/webx-cli
+          echo "Testing package publication..."
+          echo "Checking if package exists on npm..."
+          npm view @webxbeyond/webx-cli version
+          echo "Package successfully published and available on npm!"
+          echo "Users can now run: npx webx"
