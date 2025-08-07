@@ -11,10 +11,12 @@
     "card",
     "showcase"
   ],
-  "version": "1.0.0",
-  "description": "WebX CLI card – terminal portfolio & projects",
+  "version": "1.0.1",
+  "description": "WebX CLI card – terminal portfolio & projects. Run with: npx webx",
+  "preferGlobal": true,
   "bin": {
-    "webx": "./index.js"
+    "webx": "./index.js",
+    "webx-cli": "./index.js"
   },
   "type": "module",
   "dependencies": {

@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - main
+  workflow_dispatch: # Allow manual trigger
 
 jobs:
   publish:
@@ -23,10 +24,35 @@ jobs:
       - name: Install dependencies
         run: npm install
 
-      - name: Authenticate with NPM
-        run: echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_TOKEN }}" > ~/.npmrc
+      - name: Check if version already exists
+        id: version-check
+        run: |
+          PACKAGE_VERSION=$(node -p "require('./package.json').version")
+          PACKAGE_NAME=$(node -p "require('./package.json').name")
+          echo "Current version: $PACKAGE_VERSION"
+          
+          if npm view "$PACKAGE_NAME@$PACKAGE_VERSION" version 2>/dev/null; then
+            echo "Version $PACKAGE_VERSION already exists on npm"
+            echo "skip=true" >> $GITHUB_OUTPUT
+          else
+            echo "Version $PACKAGE_VERSION does not exist, proceeding with publish"
+            echo "skip=false" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Test the CLI
+        if: steps.version-check.outputs.skip == 'false'
+        run: |
+          node index.js
 
       - name: Publish to npm
+        if: steps.version-check.outputs.skip == 'false'
         run: npm publish --access public
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+
+      - name: Verify publication
+        if: steps.version-check.outputs.skip == 'false'
+        run: |
+          sleep 30  # Wait for npm to propagate
+          echo "Testing npx webx..."
+          npx --yes @webxbeyond/webx-cli
